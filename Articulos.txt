@@ -1,0 +1,10 @@
+  315578 10 Detergente Magistral            980  1300.50 cc         4 20 5 10 3 25 6 15 6 10 0 25 4 15
+69823290  5 Cerveza Schneider               250  1785.33 litros     2  5 2 25 0 10 3 30 6  5 6 10 2 10
+  296407  1 Yogur La Serenisima             550  1928.40 gramos     2 15 4 15 4 10 6 10 3 20 6 20 4  5
+74355344  5 Cerveza Quilmes                 400  1897.07 litros     3 10 6 25 5  5 1  5 0 15 4 10 5 15
+76361420 13 Queso rallado La Quesera       1167  2212.84 gramos     2 25 6 10 1 25 4 10 3 10 5 10 1 10
+ 5000878 13 Manteca La Serenisima           210   732.60 gramos     1 15 1 15 2 20 2 20 0 15 4 15 1 25
+42168135 13 Pizza congelada                   0  2948.95 unidad     6 10 5 10 5 10 3  5 4 25 0  5 2 20
+ 7612048  1 Leche Ilolay                    500   994.79 litros     2 20 1  5 2  5 4 15 2 10 3 20 3 10
+36786094  6 Coca-Cola 2.25                    3  1845.37 litros     1  5 0 15 0 20 3  5 5 15 6 10 4 15
+ 6412819 12 Alfajor Guaymallen             2450   850.50 unidad     5 25 1  5 1 10 2 20 6  5 4 15 0  5

@@ -1,0 +1,10 @@
+Alfajor Guaymallen                9 1
+Cerveza Quilmes                   3 0
+Cerveza Schneider                 1 1
+Coca-Cola 2.25                    8 1
+Detergente Magistral              0 1
+Leche Ilolay                      7 1
+Manteca La Serenisima             5 1
+Pizza congelada                   6 1
+Queso rallado La Quesera          4 1
+Yogur La Serenisima               2 1

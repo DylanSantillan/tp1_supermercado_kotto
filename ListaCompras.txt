@@ -1,0 +1,5 @@
+Cerveza Schneider               6
+Cerveza Quilmes                12
+Pizza congelada                 3
+Coca-Cola 2.25                 10
+Alfajor Guaymallen             30
