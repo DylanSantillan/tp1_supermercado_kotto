@@ -26,7 +26,7 @@ struct sArt {
     short ofertas[OFERTAS * 2];
 };
 
-struct sDescArt {
+struct sIndArt {
     str30 desc;
     int pos;
     bool estado;
@@ -47,10 +47,17 @@ struct sRubArt {
     int pos;
 };
 
-typedef sDescArt tvrIndArt[MAX_ART];
-typedef sCpra tvrListCpra[MAX_CPRA];
+typedef sIndArt tvrIndArt[MAX_ART];
 typedef sRubArt tvrRubArt[MAX_ART];
+typedef sCpra tvrListCpra[MAX_CPRA];
 typedef sRub tvrRub[RUBROS];
+
+void Abrir(fstream &Art, ifstream &IndArt, ifstream &Rub, ifstream &ListCpra) {
+    Art.open("Articulos.txt", ios::in | ios::out);
+    IndArt.open("IndDescripArt.txt");
+    Rub.open("Rubros.txt");
+    ListCpra.open("ListaCompras.txt");
+}
 
 void IntCmb(sRubArt &elem1, sRubArt &elem2) {
     sRubArt aux = elem1;
@@ -73,6 +80,69 @@ void OrdxBur(tvrRubArt vrRubArt, ushort card) {
     } while (!ordenado);
 }
 
+bool LeerArt(fstream &Art, sArt &rArt) {
+    Art >> rArt.codArt >> rArt.codRub;
+    Art.ignore();
+    Art.get(rArt.desc, 30);
+    Art >> rArt.stock >> rArt.preUni;
+    Art.ignore();
+    Art.get(rArt.uniMed, 10);
+
+    for (ushort i = 0; i < OFERTAS * 2; i++)
+        Art >> rArt.ofertas[i];
+
+    Art.ignore();
+    return Art.good();
+}
+
+bool LeerDescArt(ifstream &IndArt, sIndArt &rDescArt) {
+    IndArt.get(rDescArt.desc, 30);
+    IndArt >> rDescArt.pos >> rDescArt.estado;
+    IndArt.ignore();
+    return IndArt.good();
+}
+
+bool LeerRub(ifstream &Rub, sRub &rRub) {
+    Rub >> rRub.codRub;
+    Rub.ignore();
+    Rub.get(rRub.descRub, 20);
+    Rub.ignore();
+    return Rub.good();
+}
+
+bool LeerCpra(ifstream &ListCpra, sCpra &rCpra) {
+    ListCpra.get(rCpra.desc, 30);
+    ListCpra >> rCpra.cant;
+    ListCpra.ignore();
+    return ListCpra.good();
+}
+
+void VolcarArchivos(fstream &Art, ifstream &IndArt, ifstream &ListCpra,
+                    ifstream &Rub, tvrIndArt vrIndArt, tvrRubArt vrRubArt,
+                    tvrListCpra vrListCpra, tvrRub &vrRub, ushort &cantArt,
+                    ushort &cantCpra) {
+    sArt rArt;
+    sIndArt rDescArt;
+    sCpra rCpra;
+    sRub rRub;
+
+    while (LeerDescArt(IndArt, rDescArt) && cantArt < MAX_ART)
+        vrIndArt[cantArt++] = rDescArt;
+
+    for (ushort i = 0; LeerArt(Art, rArt) && i < cantArt; i++) {
+        vrRubArt[i].codRub = rArt.codRub;
+        vrRubArt[i].pos = i;
+    }
+
+    while (LeerCpra(ListCpra, rCpra) && cantCpra < MAX_CPRA)
+        vrListCpra[cantCpra++] = rCpra;
+
+    for (ushort i = 0; LeerRub(Rub, rRub) && i < RUBROS; i++)
+        vrRub[i] = rRub;
+
+    OrdxBur(vrRubArt, cantArt);
+}
+
 int BusBinVec(tvrIndArt vrIndArt, str30 clave, int card) {
     int ult = card - 1;
     int prim = 0;
@@ -88,76 +158,6 @@ int BusBinVec(tvrIndArt vrIndArt, str30 clave, int card) {
             ult = med - 1;
     }
     return -1;
-}
-
-void Abrir(fstream &Art, ifstream &IndArt, ifstream &Rub, ifstream &ListCpra) {
-    Art.open("Articulos.txt");
-    IndArt.open("IndDescripArt.txt");
-    Rub.open("Rubros.txt");
-    ListCpra.open("ListaCompras.txt");
-}
-
-bool LeerArt(fstream &Art, sArt &rArt) {
-    Art >> rArt.codArt >> rArt.codRub;
-    Art.ignore();
-    Art.get(rArt.desc, 30);
-    Art >> rArt.stock >> rArt.preUni;
-    Art.ignore();
-    Art.get(rArt.uniMed, 10);
-
-    for (ushort i = 0; i < OFERTAS * 2; i++)
-        Art >> rArt.ofertas[i];
-
-    return Art.good();
-}
-
-bool LeerDescArt(ifstream &IndArt, sDescArt &rDescArt) {
-    IndArt.get(rDescArt.desc, 31);
-    IndArt >> rDescArt.pos >> rDescArt.estado;
-    IndArt.ignore();
-    return IndArt.good();
-}
-
-bool LeerRub(ifstream &Rub, sRub &rRub) {
-    Rub >> rRub.codRub;
-    Rub.ignore();
-    Rub.get(rRub.descRub, 21);
-    Rub.ignore();
-    return Rub.good();
-}
-
-bool LeerCpra(ifstream &ListCpra, sCpra &rCpra) {
-    ListCpra.get(rCpra.desc, 31);
-    ListCpra >> rCpra.cant;
-    ListCpra.ignore();
-    return ListCpra.good();
-}
-
-void VolcarArchivos(fstream &Art, ifstream &IndArt, ifstream &ListCpra,
-                    ifstream &Rub, tvrIndArt vrIndArt, tvrRubArt vrRubArt,
-                    tvrListCpra vrListCpra, tvrRub &vrRub, ushort &cantArt,
-                    ushort &cantCpra) {
-    sArt rArt;
-    sDescArt rDescArt;
-    sCpra rCpra;
-    sRub rRub;
-
-    while (LeerDescArt(IndArt, rDescArt) && cantArt < MAX_ART)
-        vrIndArt[cantArt++] = rDescArt;
-
-    for (ushort i = 0; LeerArt(Art, rArt) && i < cantArt; i++) {
-        vrRubArt[i].codRub = rArt.codRub;
-        vrRubArt[i].pos = i;
-    }
-
-    while (LeerCpra(ListCpra, rCpra) && cantCpra < MAX_CPRA)
-        vrListCpra[cantCpra++] = rCpra;
-
-    for (ushort i = 0; LeerRub(Rub, rRub) && i < RUBROS; i++) {
-        vrRub[i] = rRub;
-    }
-
-    OrdxBur(vrRubArt, cantArt);
 }
 
 void ActLinea(fstream &Art, sArt rArt, short posArt) {
@@ -241,23 +241,50 @@ void CabeceraTicket(int &ds) {
     GetDate(year, mes, dia, ds);
     GetTime(hh, mm, ss);
 
+    str10 nomDia;
+
+    switch (ds) {
+        case 1:
+            strcpy(nomDia, "Domingo");
+            break;
+        case 2:
+            strcpy(nomDia, "Lunes");
+            break;
+        case 3:
+            strcpy(nomDia, "Martes");
+            break;
+        case 4:
+            strcpy(nomDia, "Miercoles");
+            break;
+        case 5:
+            strcpy(nomDia, "Jueves");
+            break;
+        case 6:
+            strcpy(nomDia, "Viernes");
+            break;
+        case 7:
+            strcpy(nomDia, "Sabado");
+            break;
+    }
+
     cout << "K O T T O\n";
     cout << "Yo te reconozco\n";
     cout << "SUC 170\n";
     cout << "XXXXXX…X 9999\n";
     cout << "XX…X\n";
     cout << "C.U.I.T. 99-99999999-9\n";
-    cout << "Fecha: " << setw(2) << setfill('0') << dia << '/' << setw(2)
-         << setfill('0') << mes << '/' << year << setfill(' ') << '\n';
-    cout << "Hora: " << setw(2) << setfill('0') << hh << ':' << setw(2)
-         << setfill('0') << mm << ':' << setw(2) << setfill('0') << ss
-         << setfill(' ') << '\n';
+    cout << "Fecha: " << setw(10) << left << nomDia << ' ' << setw(2)
+         << setfill('0') << right << dia << '/' << setw(2) << setfill('0')
+         << right << mes << '/' << year << setfill(' ') << '\n';
+    cout << "Hora: " << setw(2) << setfill('0') << right << hh << ':' << setw(2)
+         << setfill('0') << right << mm << ':' << setw(2) << setfill('0')
+         << right << ss << setfill(' ') << '\n';
     cout << "Nro. Ticket: 9999-99999999\n";
     cout << "Nro. Caja: 9999\n";
-    cout << Replicate('=', 45) << '\n';
+    cout << Replicate('-', 45) << '\n';
     cout << "F A C T U R A - B\n";
     cout << "ORIGINAL\n";
-    cout << Replicate('=', 45) << '\n';
+    cout << Replicate('-', 45) << '\n';
 }
 
 void PieTicket(float impTot, float impTotDesto, float impTotConDesto) {
@@ -289,33 +316,33 @@ void EmitirTicket(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
         Art.seekg(vrIndArt[posInd].pos * TAM_LINEA);
         LeerArt(Art, rArt);
 
-        ushort numPromo = rArt.ofertas[(ds - 1) * 2];
-        ushort porcDesc = rArt.ofertas[(ds - 1) * 2 + 1];
+        ushort tipoPromo = rArt.ofertas[(ds - 1) * 2];
+        ushort promoDesto = rArt.ofertas[(ds - 1) * 2 + 1];
         float impTotItem = vrListCpra[i].cant * rArt.preUni;
-        float ImpTotDesc = (impTotItem * porcDesc) / 100;
-        str10 promo;
+        float ImpTotDesc = (impTotItem * promoDesto) / 100;
+        str10 nomPromo;
 
-        switch (numPromo) {
+        switch (tipoPromo) {
+            case 1:
+                strcpy(nomPromo, "SinPromo");
+                break;
             case 2:
-                strcpy(promo, "Promo");
+                strcpy(nomPromo, "Promo");
                 break;
             case 3:
-                strcpy(promo, "Marca");
+                strcpy(nomPromo, "Marca");
                 break;
             case 4:
-                strcpy(promo, "Jub.");
+                strcpy(nomPromo, "Jub.");
                 break;
             case 5:
-                strcpy(promo, "Comunid.");
+                strcpy(nomPromo, "Comunid.");
                 break;
             case 6:
-                strcpy(promo, "MercPago");
+                strcpy(nomPromo, "MercPago");
                 break;
             case 7:
-                strcpy(promo, "ANSES");
-                break;
-            default:
-                strcpy(promo, "SinPromo");
+                strcpy(nomPromo, "ANSES");
                 break;
         }
 
@@ -327,8 +354,8 @@ void EmitirTicket(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
         cout << setw(8) << right << rArt.codArt << ' ' << setw(21) << ' '
              << " $ " << setw(10) << right << impTotItem << '\n';
 
-        if (numPromo != 1) {
-            cout << setw(10) << left << promo << ' ' << numPromo << setw(18)
+        if (strcmp(nomPromo, "SinPromo") != 0) {
+            cout << setw(10) << left << nomPromo << ' ' << tipoPromo << setw(18)
                  << ' ' << " $ " << setw(10) << right << ImpTotDesc << '\n';
             impTotDesto += ImpTotDesc;
         }
@@ -358,8 +385,7 @@ void EmitirArt_x_Rubro(fstream &Art, tvrRubArt vrRubArt, tvrRub vrRub,
     string titulo = "Listado de Articulos ordenados por Codigo de Rubro";
     int espacios = (TAM_LINEA - titulo.length()) / 2;
 
-    cout << "\n\n";
-    cout << Replicate('-', TAM_LINEA) << '\n';
+    cout << "\n\n" << Replicate('-', TAM_LINEA) << '\n';
     cout << setw(espacios + titulo.length()) << titulo << '\n';
     cout << Replicate('=', TAM_LINEA) << '\n';
 
@@ -374,19 +400,20 @@ void EmitirArt_x_Rubro(fstream &Art, tvrRubArt vrRubArt, tvrRub vrRub,
             rubroActual = rArt.codRub;
 
             for (ushort j = 0; j < RUBROS; j++) {
-                if (vrRub[j].codRub == rubroActual) {
-                    cout << "\nCod. Rubro: " << setw(2) << right
-                         << vrRub[j].codRub << ' ' << vrRub[j].descRub << '\n';
+                if (vrRub[j].codRub != rubroActual)
+                    continue;
 
-                    cout << "Cod.Art." << ' ' << setw(30) << left
-                         << "Descripcion" << ' ' << "Stk." << ' ' << "Pre.Uni."
-                         << ' ' << setw(10) << left << "U.Med.";
+                cout << "\nCod. Rubro: " << setw(2) << right << vrRub[j].codRub
+                     << ' ' << vrRub[j].descRub << '\n';
 
-                    for (ushort k = 0; k < OFERTAS; k++)
-                        cout << ' ' << "TD" << right << ' ' << "%";
+                cout << "Cod.Art." << ' ' << setw(30) << left << "Descripcion"
+                     << ' ' << "Stk." << ' ' << "Pre.Uni." << ' ' << setw(10)
+                     << left << "U.Med.";
 
-                    cout << '\n' << Replicate('-', TAM_LINEA) << '\n';
-                }
+                for (ushort k = 0; k < OFERTAS; k++)
+                    cout << ' ' << "TD" << right << ' ' << "%";
+
+                cout << '\n' << Replicate('-', TAM_LINEA) << '\n';
             }
         }
 
@@ -402,6 +429,7 @@ void EmitirArt_x_Rubro(fstream &Art, tvrRubArt vrRubArt, tvrRub vrRub,
 
         cout << '\n';
     }
+    fclose(stdout);
 }
 
 void Cerrar(fstream &Art, ifstream &IndArt, ifstream &Rub, ifstream &ListCpra) {
