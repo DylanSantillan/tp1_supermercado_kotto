@@ -298,7 +298,7 @@ void PieTicket(float impTot, float impTotDesto, float impTotConDesto) {
 }
 
 void EmitirTicket(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
-                  ushort cantCpra) {
+                  ushort cantCpra, ushort cantArt) {
     int ds;
     sArt rArt;
     float impTot = 0.0f, impTotDesto = 0.0f;
@@ -310,7 +310,7 @@ void EmitirTicket(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
         if (vrListCpra[i].cant == 0)
             continue;
 
-        short posInd = BusBinVec(vrIndArt, vrListCpra[i].desc, cantCpra);
+        short posInd = BusBinVec(vrIndArt, vrListCpra[i].desc, cantArt);
 
         Art.clear();
         Art.seekg(vrIndArt[posInd].pos * TAM_LINEA);
@@ -453,7 +453,7 @@ int main() {
     VolcarArchivos(Art, IndArt, ListCpra, Rub, vrIndArt, vrRubArt, vrListCpra,
                    vrRub, cantArt, cantCpra);
     ProcCompras(Art, vrListCpra, vrIndArt, cantArt, cantCpra);
-    EmitirTicket(Art, vrListCpra, vrIndArt, cantCpra);
+    EmitirTicket(Art, vrListCpra, vrIndArt, cantCpra, cantArt);
     EmitirArt_x_Rubro(Art, vrRubArt, vrRub, cantArt);
     Cerrar(Art, IndArt, Rub, ListCpra);
 
