@@ -118,8 +118,8 @@ bool LeerCpra(ifstream &ListCpra, sCpra &rCpra) {
 }
 
 void VolcarArchivos(fstream &Art, ifstream &IndArt, ifstream &ListCpra,
-                    ifstream &Rub, tvrIndArt &vrIndArt, tvrRubArt &vrRubArt,
-                    tvrListCpra &vrListCpra, tvrRub &vrRub, ushort &cantArt,
+                    ifstream &Rub, tvrIndArt vrIndArt, tvrRubArt vrRubArt,
+                    tvrListCpra vrListCpra, tvrRub vrRub, ushort &cantArt,
                     ushort &cantCpra) {
     sArt rArt;
     sIndArt rIndArt;
@@ -174,7 +174,7 @@ void ActLinea(fstream &Art, sArt rArt, short posArt) {
             << rArt.ofertas[2 * j + 1];
 }
 
-void ProcCompras(fstream &Art, tvrListCpra &vrListCpra, tvrIndArt &vrIndArt,
+void ProcCompras(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
                  ushort cantArt, ushort cantCpra) {
     sArt rArt;
 
@@ -297,7 +297,7 @@ void PieTicket(float impTot, float impTotDesto, float impTotConDesto) {
     cout << "  comunicarse al correo infoKotto.com.ar\n";
 }
 
-void EmitirTicket(fstream &Art, tvrListCpra &vrListCpra, tvrIndArt &vrIndArt,
+void EmitirTicket(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
                   ushort cantCpra, ushort cantArt) {
     int ds;
     sArt rArt;
@@ -379,7 +379,7 @@ void EmitirTicket(fstream &Art, tvrListCpra &vrListCpra, tvrIndArt &vrIndArt,
     PieTicket(impTot, impTotDesto, impTotConDesto);
 }
 
-void EmitirArt_x_Rubro(fstream &Art, tvrRubArt &vrRubArt, tvrRub &vrRub,
+void EmitirArt_x_Rubro(fstream &Art, tvrRubArt vrRubArt, tvrRub vrRub,
                        ushort cantArt) {
     sArt rArt;
     string titulo = "Listado de Articulos ordenados por Codigo de Rubro";
