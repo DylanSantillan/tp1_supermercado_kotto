@@ -1,5 +1,25 @@
-Cerveza Schneider               6
-Cerveza Quilmes                12
-Pizza congelada                 3
+Pan lactal Bimbo               10
+Jabon Dove                      7
+Fernet Branca                   6
 Coca-Cola 2.25                 10
-Alfajor Guaymallen             30
+Pollo entero                    2
+Salame milan                    3
+Cerveza Quilmes                17
+Televisor LG 43                 1
+Chocolate Milka                20
+Cerveza Schneider              12
+Queso reggianito               12
+Pan de campo                   13
+Celular Samsung A14             1
+Sprite Lima Limon              10
+Yogur entero durazno            3
+Leche Serenisima                5
+Queso gouda                     2
+Jamon cocido                   11
+Chorizo parrillero             10
+Desodorante Rexona              3
+Pelota de futbol Adidas         2
+Oso de peliche                  3
+Cebolla blanca                 20
+Lavandina ayudin               10
+Shampoo Pantene                 2

@@ -1,10 +1,45 @@
-  315578 10 Detergente Magistral            980  1300.50 cc         4 20 5 10 3 25 6 15 6 10 0 25 4 15
-69823290  5 Cerveza Schneider               250  1785.33 litros     2  5 2 25 0 10 3 30 6  5 6 10 2 10
-  296407  1 Yogur La Serenisima             550  1928.40 gramos     2 15 4 15 4 10 6 10 3 20 6 20 4  5
-74355344  5 Cerveza Quilmes                 400  1897.07 litros     3 10 6 25 5  5 1  5 0 15 4 10 5 15
+31557890 10 Detergente Magistral            980  1300.50 cc         4 20 5 10 3 25 6 15 6 10 1 25 4 15
+69823291  5 Cerveza Schneider                10  1785.33 litros     2  5 2 25 1 10 3 30 1  5 6 10 2 10
+56123987 14 Celular Samsung A14              30 75999.90 unidad     1  5 2 10 3  5 4 10 5 15 6 10 7 20
+29640712  1 Yogur La Serenisima             550  1928.40 gramos     7 15 4 15 4 10 6 10 3 20 7 20 4  5
+78678241  5 Fernet Branca                    75  4590.75 litros     1 15 2 10 3 20 4 20 5 15 6 20 7 25
 76361420 13 Queso rallado La Quesera       1167  2212.84 gramos     2 25 6 10 1 25 4 10 3 10 5 10 1 10
- 5000878 13 Manteca La Serenisima           210   732.60 gramos     1 15 1 15 2 20 2 20 0 15 4 15 1 25
-42168135 13 Pizza congelada                   0  2948.95 unidad     6 10 5 10 5 10 3  5 4 25 0  5 2 20
- 7612048  1 Leche Ilolay                    500   994.79 litros     2 20 1  5 2  5 4 15 2 10 3 20 3 10
-36786094  6 Coca-Cola 2.25                    3  1845.37 litros     1  5 0 15 0 20 3  5 5 15 6 10 4 15
- 6412819 12 Alfajor Guaymallen             2450   850.50 unidad     5 25 1  5 1 10 2 20 6  5 4 15 0  5
+76120485  1 Leche Ilolay                    500   994.79 litros     2 20 1  5 2  5 4 15 2 10 3 20 3 10
+36786094  6 Coca-Cola 2.25                    0  1845.37 litros     1  5 1 15 1 20 3  5 5 15 6 10 4 15
+42367891  2 Pan lactal Bimbo                180   950.00 gramos     1 10 3 10 2 20 4 10 5 15 6 20 7 10
+58791254  1 Helados bombom                   25   802.65 gramos     1 20 1 20 1 15 4 15 3 25 2 25 5 20
+90213478  8 Pollo entero                    180  2899.40 kilos      1 15 3 20 4 25 5 15 6 20 7 10 2 15
+64128197 12 Alfajor Guaymallen             1250   850.50 unidad     5 25 1  5 1 10 2 20 7  5 4 15 1  5
+59784512  1 Yogur entero durazno             58  2041.02 litros     2 20 3 20 7 15 2 15 2  5 3 25 6 20
+89213467 14 Televisor LG 43                  15 99999.99 unidad     1 10 2 15 3 20 4 10 5 20 6 25 7 10
+32368750  7 Queso reggianito                 23  1873.30 kilos      4 20 3 20 1 15 3 15 3 25 3 25 3 20
+67123480 12 Chocolate Milka                 400  1200.75 gramos     1 15 2 20 3 25 4 10 5 20 6 25 7 10
+80196873  5 Cerveza Amstel Lager            250  3421.87 litros     2 20 2 20 6 15 2 15 4 25 3 25 2 20
+42168135 13 Pizza congelada                   0  2948.95 unidad     6 10 5 10 5 10 3  5 4 25 1  5 2 20
+19967859  6 Sprite Lima Limon               200  1580.30 litros     1 15 2 20 3 10 4 15 5 20 6 25 7 10
+21347856  7 Salame milan                    140  3790.40 gramos     1 20 2 10 3 15 4 20 5 25 6 15 7 10
+50008781 13 Manteca La Serenisima           210   732.60 gramos     1 15 1 15 2 20 2 20 1 15 4 15 7 25
+56378901 11 Pasta dental Colgate            320   800.00 gramos     2 15 3 10 4 20 1 10 6 25 7 20 5 15
+12893475  2 Pan de campo                     90  1350.00 gramos     2 15 3 10 4 20 5 10 6 25 7 20 1 10
+74355344  5 Cerveza Quilmes                 388  1897.07 litros     3 10 6 25 5  5 1  5 7 15 4 10 5 15
+56234789  7 Jamon cocido                    120  4599.20 gramos     1 15 2 20 3 25 4 10 5 15 6 20 7 25
+90217836 11 Desodorante Rexona              150  1300.45 ml         1 20 2 25 3 10 4 20 5 15 6 20 7 25
+74141296  1 Leche Serenisima                 38   785.09 litros     6 20 3 20 2 15 4 15 3 25 2 25 5 20
+85947320  6 Jugo Baggio Naranja             150  1200.55 litros     2 10 3 15 1 10 5 15 2 20 6 10 3 20
+23456789 12 Caramelos Sugus                 500   950.40 gramos     2 10 3 20 4 15 5 20 6 25 7 10 1 15
+78652314  7 Queso gouda                     130  4290.75 gramos     2 20 3 25 1 10 4 15 5 15 6 20 7 15
+62389014 10 Lavandina ayudin                 80  2399.99 gramos     1 10 3 20 4 15 2 10 6 15 7 20 5 25
+32789012  8 Carne picada comun              200  3590.50 kilos      1 25 2 15 3 20 4 25 5 10 6 20 7 15
+98127634 12 Galletitas Oreo                 380  1050.60 gramos     1 25 2 10 3 20 4 25 5 10 6 20 7 15
+98234560  6 Agua Villavicencio              300   700.40 litros     1  5 3 10 2 20 4 15 5 10 7 10 2 25
+78659012  2 Facturas surtidas               100  1750.75 unidad     1 15 2 15 3 10 5 15 4 20 6 15 7 20
+32789045 15 Pelota de futbol Adidas          80  9500.50 unidad     2 15 3 10 4 20 5 15 6 10 7 25 1 15
+56123487  8 Chorizo parrillero               90  3250.60 kilos      2 15 3 10 4 20 1 15 6 20 7 25 5 10
+98231457  9 Tomate redondo                  300   899.90 kilos      1  5 2 10 3 15 4 20 5 25 6 10 7 15
+89126734 15 Oso de peliche                   50 12500.00 unidad     1 20 2 25 3 15 4 10 5 20 6 25 7 10
+18723456  9 Papa negra                      400   750.00 kilos      1 15 2 20 3 25 4 10 5 10 6 20 7 20
+73218904 11 Shampoo Pantene                 210  1850.30 ml         1 10 2 15 3 20 4 10 5 15 6 20 7 25
+45678123  9 Cebolla blanca                    5   650.75 kilos      1 10 2 15 3 20 4 15 5 25 6 15 7 10
+13102456  5 Vino Toro Malbec                120   809.09 litros     2 20 2 20 4 15 4 15 2 25 7 25 6 20
+89123456  9 Zanahoria                       250   800.80 kilos      2 15 3 10 4 15 5 20 6 25 7 15 1 20
+12890347 11 Jabon Dove                      280   450.75 gramos     1 15 2 10 3 15 4 20 5 25 6 15 7 10

@@ -1,10 +1,45 @@
-Alfajor Guaymallen                9 1
-Cerveza Quilmes                   3 0
+Agua Villavicencio               33 1
+Alfajor Guaymallen               11 1
+Caramelos Sugus                  28 1
+Carne picada comun               31 1
+Cebolla blanca                   41 1
+Celular Samsung A14               2 1
+Cerveza Amstel Lager             16 1
+Cerveza Quilmes                  23 1
 Cerveza Schneider                 1 1
-Coca-Cola 2.25                    8 1
+Chocolate Milka                  15 0
+Chorizo parrillero               36 1
+Coca-Cola 2.25                    7 1
+Desodorante Rexona               25 1
 Detergente Magistral              0 1
-Leche Ilolay                      7 1
-Manteca La Serenisima             5 1
-Pizza congelada                   6 1
-Queso rallado La Quesera          4 1
-Yogur La Serenisima               2 1
+Facturas surtidas                34 1
+Fernet Branca                     4 1
+Galletitas Oreo                  32 1
+Helados bombom                    9 1
+Jabon Dove                       44 1
+Jamon cocido                     24 1
+Jugo Baggio Naranja              27 1
+Lavandina ayudin                 30 1
+Leche Ilolay                      6 1
+Leche Serenisima                 26 1
+Manteca La Serenisima            20 1
+Oso de peliche                   38 1
+Pan de campo                     22 1
+Pan lactal Bimbo                  8 0
+Papa negra                       39 1
+Pasta dental Colgate             21 1
+Pelota de futbol Adidas          35 1
+Pizza congelada                  17 1
+Pollo entero                     10 1
+Queso gouda                      29 1
+Queso rallado La Quesera          5 1
+Queso reggianito                 14 1
+Salame milan                     19 1
+Shampoo Pantene                  40 1
+Sprite Lima Limon                18 1
+Televisor LG 43                  13 1
+Tomate redondo                   37 1
+Vino Toro Malbec                 42 1
+Yogur La Serenisima               3 1
+Yogur entero durazno             12 1
+Zanahoria                        43 1
