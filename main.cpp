@@ -95,9 +95,9 @@ bool LeerArt(fstream &Art, sArt &rArt) {
     return Art.good();
 }
 
-bool LeerDescArt(ifstream &IndArt, sIndArt &rDescArt) {
-    IndArt.get(rDescArt.desc, 31);
-    IndArt >> rDescArt.pos >> rDescArt.estado;
+bool LeerIndArt(ifstream &IndArt, sIndArt &rIndArt) {
+    IndArt.get(rIndArt.desc, 31);
+    IndArt >> rIndArt.pos >> rIndArt.estado;
     IndArt.ignore();
     return IndArt.good();
 }
@@ -122,12 +122,12 @@ void VolcarArchivos(fstream &Art, ifstream &IndArt, ifstream &ListCpra,
                     tvrListCpra &vrListCpra, tvrRub &vrRub, ushort &cantArt,
                     ushort &cantCpra) {
     sArt rArt;
-    sIndArt rDescArt;
+    sIndArt rIndArt;
     sCpra rCpra;
     sRub rRub;
 
-    while (LeerDescArt(IndArt, rDescArt) && cantArt < MAX_ART)
-        vrIndArt[cantArt++] = rDescArt;
+    while (LeerIndArt(IndArt, rIndArt) && cantArt < MAX_ART)
+        vrIndArt[cantArt++] = rIndArt;
 
     for (ushort i = 0; LeerArt(Art, rArt) && i < cantArt; i++) {
         vrRubArt[i].codRub = rArt.codRub;
