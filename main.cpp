@@ -53,7 +53,7 @@ typedef sCpra tvrListCpra[MAX_CPRA];
 typedef sRub tvrRub[RUBROS];
 
 void Abrir(fstream &Art, ifstream &IndArt, ifstream &Rub, ifstream &ListCpra) {
-    Art.open("Articulos.txt", ios::in | ios::out);
+    Art.open("ArticulosMod.txt", ios::in | ios::out);
     IndArt.open("IndDescripArt.txt");
     Rub.open("Rubros.txt");
     ListCpra.open("ListaCompras.txt");
@@ -417,7 +417,6 @@ void EmitirArt_x_Rubro(fstream &Art, tvrRubArt vrRubArt, tvrRub vrRub,
             }
         }
 
-        // Imprimir datos del artículo
         cout << setw(8) << right << rArt.codArt << ' ' << setw(30) << left
              << rArt.desc << ' ' << setw(4) << right << rArt.stock << ' '
              << setprecision(2) << fixed << setw(8) << right << rArt.preUni
