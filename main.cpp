@@ -14,7 +14,7 @@ const ushort MAX_ART = 10000;
 const ushort MAX_CPRA = 100;
 const ushort RUBROS = 15;
 const ushort OFERTAS = 7;
-const ushort TAM_LINEA = 103;
+const ushort TAM_LINEA = 104;
 
 struct sArt {
     int codArt;
@@ -53,7 +53,7 @@ typedef sCpra tvrListCpra[MAX_CPRA];
 typedef sRub tvrRub[RUBROS];
 
 void Abrir(fstream &Art, ifstream &IndArt, ifstream &Rub, ifstream &ListCpra) {
-    Art.open("ArticulosMod.txt", ios::in | ios::out);
+    Art.open("Articulos.txt", ios::in | ios::out);
     IndArt.open("IndDescripArt.txt");
     Rub.open("Rubros.txt");
     ListCpra.open("ListaCompras.txt");
@@ -83,10 +83,10 @@ void OrdxBur(tvrRubArt vrRubArt, ushort card) {
 bool LeerArt(fstream &Art, sArt &rArt) {
     Art >> rArt.codArt >> rArt.codRub;
     Art.ignore();
-    Art.get(rArt.desc, 30);
+    Art.get(rArt.desc, 31);
     Art >> rArt.stock >> rArt.preUni;
     Art.ignore();
-    Art.get(rArt.uniMed, 10);
+    Art.get(rArt.uniMed, 11);
 
     for (ushort i = 0; i < OFERTAS * 2; i++)
         Art >> rArt.ofertas[i];
@@ -96,7 +96,7 @@ bool LeerArt(fstream &Art, sArt &rArt) {
 }
 
 bool LeerDescArt(ifstream &IndArt, sIndArt &rDescArt) {
-    IndArt.get(rDescArt.desc, 30);
+    IndArt.get(rDescArt.desc, 31);
     IndArt >> rDescArt.pos >> rDescArt.estado;
     IndArt.ignore();
     return IndArt.good();
@@ -105,21 +105,21 @@ bool LeerDescArt(ifstream &IndArt, sIndArt &rDescArt) {
 bool LeerRub(ifstream &Rub, sRub &rRub) {
     Rub >> rRub.codRub;
     Rub.ignore();
-    Rub.get(rRub.descRub, 20);
+    Rub.get(rRub.descRub, 21);
     Rub.ignore();
     return Rub.good();
 }
 
 bool LeerCpra(ifstream &ListCpra, sCpra &rCpra) {
-    ListCpra.get(rCpra.desc, 30);
+    ListCpra.get(rCpra.desc, 31);
     ListCpra >> rCpra.cant;
     ListCpra.ignore();
     return ListCpra.good();
 }
 
 void VolcarArchivos(fstream &Art, ifstream &IndArt, ifstream &ListCpra,
-                    ifstream &Rub, tvrIndArt vrIndArt, tvrRubArt vrRubArt,
-                    tvrListCpra vrListCpra, tvrRub &vrRub, ushort &cantArt,
+                    ifstream &Rub, tvrIndArt &vrIndArt, tvrRubArt &vrRubArt,
+                    tvrListCpra &vrListCpra, tvrRub &vrRub, ushort &cantArt,
                     ushort &cantCpra) {
     sArt rArt;
     sIndArt rDescArt;
@@ -174,11 +174,11 @@ void ActLinea(fstream &Art, sArt rArt, short posArt) {
             << rArt.ofertas[2 * j + 1];
 }
 
-void ProcCompras(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
+void ProcCompras(fstream &Art, tvrListCpra &vrListCpra, tvrIndArt &vrIndArt,
                  ushort cantArt, ushort cantCpra) {
     sArt rArt;
 
-    for (ushort i = 0; i < cantArt; i++) {
+    for (ushort i = 0; i < cantCpra; i++) {
         short posInd = BusBinVec(vrIndArt, vrListCpra[i].desc, cantArt);
 
         if (posInd == -1 || vrIndArt[posInd].estado == false) {
@@ -297,7 +297,7 @@ void PieTicket(float impTot, float impTotDesto, float impTotConDesto) {
     cout << "  comunicarse al correo infoKotto.com.ar\n";
 }
 
-void EmitirTicket(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
+void EmitirTicket(fstream &Art, tvrListCpra &vrListCpra, tvrIndArt &vrIndArt,
                   ushort cantCpra, ushort cantArt) {
     int ds;
     sArt rArt;
@@ -379,7 +379,7 @@ void EmitirTicket(fstream &Art, tvrListCpra vrListCpra, tvrIndArt vrIndArt,
     PieTicket(impTot, impTotDesto, impTotConDesto);
 }
 
-void EmitirArt_x_Rubro(fstream &Art, tvrRubArt vrRubArt, tvrRub vrRub,
+void EmitirArt_x_Rubro(fstream &Art, tvrRubArt &vrRubArt, tvrRub &vrRub,
                        ushort cantArt) {
     sArt rArt;
     string titulo = "Listado de Articulos ordenados por Codigo de Rubro";
